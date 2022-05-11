@@ -18,14 +18,17 @@ def upload_file():
     model2 = mobilenet_unet(n_classes=6 ,  input_height=256, input_width=256  )
     model2.load_weights("/home/suraj/Desktop/Major_Project/saved_model/mobilenet_unet.h5")
     f_types = [('PNG files',"*.png"),('Jpg files','*.jpg'),('All Files',"*.*")]
-    filename1 = askopenfilename(filetypes=f_types)
+
+    # Select Orginal Defect Images
+    filename1 = askopenfilename(filetypes=f_types)  
     print("Original Image Selected")
     out = model2.predict_segmentation(
         inp=filename1,
         out_fname="/home/suraj/Desktop/Major_Project/output/output1.png"
         )
     l.append(filename1)
-
+    
+    # Select corresponding mask images of defect image
     filename2 = askopenfilename(filetypes=f_types)
     l.append(filename2)
     print("Mask Image selected")
