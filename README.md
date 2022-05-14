@@ -5,4 +5,4 @@
 2. keras==2.4.3
 3. opencv-python
 4. Pillow
-5. tk=0.1.0
+5. tk==0.1.0
